@@ -44,4 +44,4 @@ var MyClass = cls.defineClass({
 
 
 
-|[Concept](https://raw.github.com/dennycd/node-cls/master/doc/node-cls.001.png "Concept")
+![Concept](https://raw.github.com/dennycd/node-cls/master/doc/node-cls.001.png "Concept")
