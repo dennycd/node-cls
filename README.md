@@ -39,7 +39,7 @@ var MyClass = cls.defineClass({
 	}
 });
 
-```javascript
+```
 
 
 
