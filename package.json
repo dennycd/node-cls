@@ -1,0 +1,27 @@
+{
+  "name": "simple-cls",
+  "version": "0.0.1",
+  "description": "A Simple Javascript Class System for Node",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "nodeunit test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dennycd/node-cls.git"
+  },
+  "keywords": [
+    "class",
+    "javascript",
+    "object oriented"
+  ],
+  "author": "Denny C. Dai",
+  "license": "MIT License",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/dennycd/node-cls/issues"
+  }
+}
