@@ -16,11 +16,13 @@
   "keywords": [
     "class",
     "javascript",
-    "object oriented"
+    "object",
+    "oriented"
   ],
-  "author": "Denny C. Dai",
+  "author": "Denny C. Dai <dennycd@me.com> (http://dennycd.me/)",
   "license": "MIT License",
   "readmeFilename": "README.md",
+  "gitHead": "3afc17348c3b4b337a6c0de84d65a46ab71c7cea",
   "bugs": {
     "url": "https://github.com/dennycd/node-cls/issues"
   }
