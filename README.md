@@ -18,7 +18,10 @@ To define a class, do the following
 var cls = require('simple-cls')
 
 var MyClass = cls.defineClass({
+	//optional class name 
 	name : "MyClass",
+	//optional super class, default is Object
+	extend : BaseClass,
 	//constructor code
 	construct : function(msg){
 		this.msg = msg;
@@ -50,7 +53,7 @@ console.log(obj.bar);
 
 
 ## Concept
-in node-cls, the class system is built upon a chain of triple objects, namely the object prototype, constructor function and a class object. As the diagram shows, instantiating a new js object will establish a relationship from the bottom up, starting at the object instance. Using javascript's built-in function we can obtain the prototype of that object.
+in node-cls, the class system is built upon a chain of triple objects, namely the  **Prototype**, **Constructor** and **Class**. As the diagram shows, instantiating a new js object will establish a relationship from the bottom up, starting at the object instance. Using javascript's built-in function we can obtain the prototype of that object.
 ```javascript
 assert.ok(Object.getPrototypeOf(obj) === MyClass.prototype);)
 ```
@@ -64,9 +67,21 @@ The **Class** object contains runtime information about the obj class and can be
 assert.ok(obj.constructor.__class === obj.getClass())
 ```
 
+To check if a js object is an instance of a class, or an instance of a subclass of some super classes 
+```javascript
+test.ok(obj.getClass().isKindOfClass('MyClass'));
+test.ok(obj.getClass().isKindOfClass('BaseClass'));
+test.ok(obj.getClass().isKindOfClass(MyClass.__class));
+test.ok(obj.getClass().isKindOfClass(BaseClass.__class));
+```
 
+To look at all the methods callable from the obj, including methods defined on the super class
+```javascript 
+console.log(obj.getClass().getMethods());
+``
 
-
+For details, please look at the unit test examples. 
 
 
 ![Concept](https://raw.github.com/dennycd/node-cls/master/doc/node-cls.001.png "Concept")
+
