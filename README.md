@@ -78,7 +78,7 @@ test.ok(obj.getClass().isKindOfClass(BaseClass.__class));
 To look at all the methods callable from the obj, including methods defined on the super class
 ```javascript 
 console.log(obj.getClass().getMethods());
-``
+```
 
 For details, please look at the unit test examples. 
 
