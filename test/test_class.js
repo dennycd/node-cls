@@ -1,13 +1,11 @@
-process.chdir("../../../");
-console.log("switching to directory " + process.cwd());
 var util = require('util');
 var assert = require('assert');
 var nodeunit = require('nodeunit');
 var clc = require('cli-color');
 
 
-var defineInterface = require('library/class/defineInterface.js');
-var defineClass = require('library/class/defineClass.js');
+var defineInterface = require('../lib/defineInterface.js');
+var defineClass = require('../lib/defineClass.js');
 
 //should do this before handle
 module.exports = exports = {
@@ -63,6 +61,7 @@ exports.testDefineInterface = function(test) {
 	}
 	test.done();
 };
+
 exports.testInterfaceInheritance = function(test) {
 	try {
 		var MyBaseInterface = defineInterface({
@@ -173,48 +172,6 @@ exports.testDynamicFunctionCreation = function(test){
 	test.done();
 };
 
-
-exports.testAbstractMethod = function(test){
-
-	var MyBaseClass = defineClass({
-		name : "MyBaseClass",
-		construct : function(){
-			console.log(clc.yellow("MyBaseClass::Construct"));	
-		},
-		methods : {
-			foo$abstract : function(name,value){console.log("name="+name+",value="+value);}
-		},
-		variables : {
-			name : "basefoo"
-		}
-	});
-		
-		
-	test.expect(3);
-	
-	try{
-		var obj = new MyBaseClass();
-	
-		test.ok(typeof(obj.foo)=="function");
-		test.ok(obj.foo.length==2);
-		
-		try{
-			obj.foo("denny","cd");
-			test.ok(false);
-		}catch(e){
-			console.log(clc.blue(util.inspect(e)));
-			test.ok(true);
-		}
-	
-	
-	}catch(e){
-		console.log(clc.red(util.inspect(e)));
-		test.ok(false);		
-	}
-		
-
-	test.done();
-};
 
 
 
@@ -418,63 +375,6 @@ exports.testInheritanceCheck = function(test){
 	
 	test.done();
 }
-
-
-
-exports.testMethodOverload = function(test){
-
-	var MyBaseClass = defineClass({
-		name: "MyBaseClass",
-		methods: {
-			foo$overload$0 : function(name,value,score) {	console.log("foo in base class name="+name+",value="+value+",score="+score); return 4;},
-		}
-	});	
-	
-
-	var MyClass = defineClass({
-		name: "MyClass",
-		extend : MyBaseClass,
-		methods: {
-			foo$overload$1 : function() {	console.log("foo"); return 1;},
-			foo$overload$3 : function(name, value) { console.log("foo name " + name + " value " + value); return 3;},
-			foo$overload$2 : function(name) { console.log("foo name " + name); return 2; },	 
-		},
-		statics : {
-			bar$overload$1 : function() { return 1},
-			bar$overload$2 : function(name){ return 2}
-		}
-	});		
-
-
-	var obj = new MyClass();
-
-	test.ok(obj.foo() == 1);
-	test.ok(obj.foo("dennycd")==2);
-	test.ok(obj.foo("denny", "cd")==3);
-	test.ok(obj.foo("denny", "cd", "aweseom")==4);
-	
-	test.ok(MyClass.bar()==1);
-	test.ok(MyClass.bar("dennycd")==2);
-
-	try{
-		obj.foo(1,2,3,4,5,6,7);
-	}catch(e){
-		console.log(clc.blue(util.inspect(e)));
-		test.ok(true);	
-	}
-	
-	test.done();
-};
-
-
-exports.testDefaultConstructor = function(test){
-
-
-	test.ok(false);
-
-	test.done();
-};
-
 
 
 
