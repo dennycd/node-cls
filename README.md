@@ -20,8 +20,8 @@ var cls = require('simple-cls')
 var MyClass = cls.defineClass({
 	name : "MyClass",
 	//constructor code
-	construct : function(){
-		
+	construct : function(msg){
+		this.msg = msg;
 	}, 
 	//instance methods
 	methods: {  
@@ -31,15 +31,40 @@ var MyClass = cls.defineClass({
 	},
 	//instance variables
 	variables: {
-		bar : 1
+		bar : 1,
+		msg : null
 	},
 	// class level variables or methods
 	statics : {
 		
 	}
 });
-
 ```
+
+To instantiate an object and start using it  
+```javascript
+var obj = new MyClass("hello");
+obj.foo();
+console.log(obj.bar);
+```
+
+
+## Concept
+in node-cls, the class system is built upon a chain of triple objects, namely the object prototype, constructor function and a class object. As the diagram shows, instantiating a new js object will establish a relationship from the bottom up, starting at the object instance. Using javascript's built-in function we can obtain the prototype of that object.
+```javascript
+assert.ok(Object.getPrototypeOf(obj) === MyClass.prototype);)
+```
+The prototype object itself is an object instance of the superclass of MyClass. If no superclass is given, it is defaulted to `Object`. `MyClass` is an alias of the **Constructor** function for obj
+```javascript 
+assert.ok(obj.constructor === MyClass)
+``` 
+
+The **Class** object contains runtime information about the obj class and can be obtained via `__class` on the constructor or `.getClass()` methods 
+```javascript
+assert.ok(obj.constructor.__class === obj.getClass())
+```
+
+
 
 
 
