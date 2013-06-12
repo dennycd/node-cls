@@ -18,6 +18,9 @@ module.exports = exports = {
 		callback();
 	}
 };
+
+
+
 exports.testDefineInterface = function(test) {
 	test.expect(1);
 	try {
