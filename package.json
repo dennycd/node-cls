@@ -1,6 +1,6 @@
 {
   "name": "simple-cls",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Simple Javascript Class System for Node",
   "main": "index.js",
   "directories": {
@@ -19,8 +19,17 @@
     "object",
     "oriented"
   ],
+  
+  "dependencies" : {
+		"node-uuid" : "1.4.0" 
+  }, 
+  
+  "engines" : {
+	 "node" : "0.10.0" 
+  }, 
+  
   "author": "Denny C. Dai <dennycd@me.com> (http://dennycd.me/)",
-  "license": "MIT License",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "gitHead": "3afc17348c3b4b337a6c0de84d65a46ab71c7cea",
   "bugs": {
