@@ -1,9 +1,9 @@
 # Simple Javascript Class System for Node.js 
 
 node-cls is a simple class system that adds a number of object-oriented features to the basic javascript language, including
-* convinient class definition with inheritance
-* abstract class / interface support
-* runtime introspection with dynamic type checking
+1. convinient class definition with inheritance
+2. abstract class a.k.a. interface support
+3. runtime introspection with dynamic type checking
 
 The design goal is to provide a clean and easily understandable class system while minimizing overhead and avoid poluting the javascript built-in objects. It is inspired and built upon the defineClass from [JavaScript The Definitive Guide](http://shop.oreilly.com/product/9780596805531.do). 
 
@@ -53,6 +53,10 @@ console.log(obj.bar);
 
 
 ## Concept
+
+![Concept](https://raw.github.com/dennycd/node-cls/master/doc/node-cls.001.png "Concept")
+
+
 in node-cls, the class system is built upon a chain of triple objects, namely the  **Prototype**, **Constructor** and **Class**. As the diagram shows, instantiating a new js object will establish a relationship from the bottom up, starting at the object instance. Using javascript's built-in function we can obtain the prototype of that object.
 ```javascript
 assert.ok(Object.getPrototypeOf(obj) === MyClass.prototype);)
@@ -83,7 +87,6 @@ console.log(obj.getClass().getMethods());
 For details, please look at the unit test examples. 
 
 
-![Concept](https://raw.github.com/dennycd/node-cls/master/doc/node-cls.001.png "Concept")
 
 ## Author 
 Denny C. Dai <dennycd@me.com> or visit <http://dennycd.me>
