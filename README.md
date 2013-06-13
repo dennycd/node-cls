@@ -1,9 +1,9 @@
 # Simple Javascript Class System for Node.js 
 
 node-cls is a simple class system that adds a number of object-oriented features to the basic javascript language, including
-1. convinient class definition with inheritance
-2. abstract class a.k.a. interface support
-3. runtime introspection with dynamic type checking
+* convinient class definition with inheritance
+* abstract class a.k.a. interface support
+* runtime introspection with dynamic type checking
 
 The design goal is to provide a clean and easily understandable class system while minimizing overhead and avoid poluting the javascript built-in objects. It is inspired and built upon the defineClass from [JavaScript The Definitive Guide](http://shop.oreilly.com/product/9780596805531.do). 
 
