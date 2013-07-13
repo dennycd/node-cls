@@ -19,6 +19,31 @@ module.exports = exports = {
 	}
 };
 
+exports.testDefineStatic = function(test){
+	
+	try{
+	
+		var DummyClass = defineClass({
+			statics : {
+				STATIC_VAR : "value",
+				STATIC_FUNC : function(){
+					console.log("func");
+				}
+			}
+		});
+			
+		DummyClass.STATIC_FUNC();
+		test.ok(DummyClass.STATIC_VAR == "value");
+		var obj = new DummyClass();
+		
+	}
+	catch(e){
+		console.log(clc.red(util.inspect(e)));
+		test.ok(false);
+	}
+	
+	test.done();
+}
 
 
 exports.testDefineInterface = function(test) {
