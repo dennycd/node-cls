@@ -16,10 +16,10 @@ module.exports = exports = {
 
 exports.testRelease = function(test){
 
-	test.expect(2);
+	test.expect(3);
 	
 	test.ok(typeof(cls)=="object");
 	test.ok(typeof(cls.defineClass)=="function")
-
+	test.ok(typeof(cls.defineInterface)=="function")
 	test.done();
 }

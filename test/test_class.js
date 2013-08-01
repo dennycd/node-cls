@@ -3,7 +3,6 @@ var assert = require('assert');
 var nodeunit = require('nodeunit');
 var clc = require('cli-color');
 
-
 var defineInterface = require('../lib/defineInterface.js');
 var defineClass = require('../lib/defineClass.js');
 
