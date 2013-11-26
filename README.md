@@ -95,4 +95,4 @@ For details, please look at the unit test examples.
 Denny C. Dai <dennycd@me.com> or visit <http://dennycd.me>
 
 ## License 
-[The MIT License](http://opensource.org/licenses/MIT)
+The MIT License
